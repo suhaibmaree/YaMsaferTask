@@ -72,8 +72,14 @@ public class FragmentPrePaid extends Fragment {
             mAccommodations = new ArrayList<>();
 
             try {
-                mAccommodations = NetworkUtils.fetchData(APIURL); //Get accommodations and save it in array
-                Log.d(TAG, ""+mAccommodations.get(0).getName());
+                ArrayList<Accommodation> list;
+                list = NetworkUtils.fetchData(APIURL); //Get accommodations and save it in array
+                Log.d(TAG, ""+list.get(0).getName());
+                for (int i = 0; i<list.size();i++){
+                    if (list.get(i).getRates().get(0).getIsPromotion().equals(Boolean.TRUE)){
+                        mAccommodations.add(list.get(i));
+                    }
+                }
 
 
             }//end try

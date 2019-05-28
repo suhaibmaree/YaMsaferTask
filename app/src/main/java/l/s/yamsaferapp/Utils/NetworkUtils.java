@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import l.s.yamsaferapp.Accommodations.Accommodation;
+import l.s.yamsaferapp.Accommodations.Rate;
 
 /**
  * Created by suhaib on 9/11/18.
@@ -56,16 +57,37 @@ public class NetworkUtils {
             JSONArray resArray = mainObject.getJSONArray("accommodations");
 
             for (int i = 0; i < resArray.length(); i++) {
+
                 JSONObject jsonObject = resArray.getJSONObject(i);
                 Accommodation accommodation = new Accommodation(); //New Accommmodation object
+
                 accommodation.setId(jsonObject.getInt("id"));
                 accommodation.setName(jsonObject.getString("name"));
                 accommodation.setDescription(jsonObject.getString("description"));
                 accommodation.setCoverImage(jsonObject.getString("cover_image"));
                 accommodation.setAllotment(jsonObject.getInt("allotment"));
 
+                //get rate array
+                JSONArray rate = jsonObject.getJSONArray("rates");
+                ArrayList<Rate> rates = new ArrayList<Rate>();
+
+                for (int j = 0;j<rate.length();j++){
+
+                    JSONObject jsonObjectTwo = rate.getJSONObject(j);
+                    Rate rateObj = new Rate(); //New rate object
+
+                    rateObj.setIsPromotion(jsonObjectTwo.getBoolean("is_promotion"));
+                    rateObj.setAdults(jsonObjectTwo.getInt("adults"));
+
+                    rates.add(rateObj);
+
+                }//end rate loop
+
+                //Adding a new rate object into accommodations
+                accommodation.setRates(rates);
                 //Adding a new accommodations object into ArrayList
                 Log.d(TAG, ""+accommodation.getName());
+                Log.d(TAG, "is_promotion:"+accommodation.getRates().get(0).getIsPromotion());
                 list.add(accommodation);
             }
 
@@ -87,4 +109,3 @@ public class NetworkUtils {
     }
 
 }
-

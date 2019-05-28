@@ -79,19 +79,7 @@ public class RoomAdapter extends RecyclerView.Adapter<RoomAdapter.MyViewHolder>{
                 public void onClick(View view) {
                     int pos = getAdapterPosition();
                     if(pos != RecyclerView.NO_POSITION){
-//                        Movie movie =movieList.get(pos);
-//                        Intent intent = new Intent(mContext, DetailActivity.class);
-//                        intent.putExtra("movie",movieList.get(pos));
-//                        intent.putExtra("original_title",movieList.get(pos).getOriginalTitle());
-//                        intent.putExtra("poster_path",movieList.get(pos).getPoster_path());
-//                        intent.putExtra("overview",movieList.get(pos).getOverview());
-//                        intent.putExtra("vote_average",Double.toString(movieList.get(pos).getVoteAverage()));
-//                        intent.putExtra("release_date",movieList.get(pos).getReleaseData());
-//                        intent.putExtra("id",movieList.get(pos).getId());
-//                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//                        mContext.startActivity(intent);
-//                        Toast.makeText(view.getContext(),movie.getOriginalTitle(),
-//                                Toast.LENGTH_LONG).show();
+//
 
                     }
                 }
