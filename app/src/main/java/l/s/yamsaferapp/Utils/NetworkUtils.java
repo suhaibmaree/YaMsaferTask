@@ -78,6 +78,8 @@ public class NetworkUtils {
 
                     rateObj.setIsPromotion(jsonObjectTwo.getBoolean("is_promotion"));
                     rateObj.setAdults(jsonObjectTwo.getInt("adults"));
+                    rateObj.setIsRefundable(jsonObjectTwo.getBoolean("is_refundable"));
+                    rateObj.setBaseRate(jsonObjectTwo.getDouble("base_rate"));
 
                     rates.add(rateObj);
 

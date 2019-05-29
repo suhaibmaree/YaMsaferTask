@@ -99,7 +99,7 @@ public class FragmentPrePaid extends Fragment {
         protected void onPostExecute(Void s) {
             super.onPostExecute(s);
             mProgressBar.setVisibility(View.INVISIBLE);
-            mRroomAdapter.setMovieList(mAccommodations);
+            mRroomAdapter.setAccommodationList(mAccommodations);
 
         }
 

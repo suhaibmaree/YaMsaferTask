@@ -4,11 +4,14 @@ package l.s.yamsaferapp.Accommodations;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.bignerdranch.expandablerecyclerview.Model.ParentObject;
+
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Accommodation implements Parcelable {
+public class Accommodation implements Serializable {
 
     private Integer id;
     private String name;
@@ -17,6 +20,8 @@ public class Accommodation implements Parcelable {
     private List<String> images = null;
     private Integer allotment;
     private List<Rate> rates = null;
+    private boolean expanded;
+    public int flag =0;// for arrow state
 
     public Integer getId() {
         return id;
@@ -75,13 +80,15 @@ public class Accommodation implements Parcelable {
     }
 
 
-    @Override
-    public int describeContents() {
-        return 0;
+
+    public void setExpanded(boolean expanded) {
+        this.expanded = expanded;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-
+    public boolean isExpanded() {
+        return expanded;
     }
+
 }
+
+
